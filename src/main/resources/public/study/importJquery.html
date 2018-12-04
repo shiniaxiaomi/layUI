@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script src="../layui/layui.js"></script>
+<script>
+    //主动加载jquery模块
+    layui.use(['jquery', 'layer'], function(){
+        var $ = layui.$ //重点处
+            ,layer = layui.layer;
+
+        //后面就跟你平时使用jQuery一样
+        $('body').append('hello jquery');
+    });
+
+</script>
+
+</body>
+</html>
