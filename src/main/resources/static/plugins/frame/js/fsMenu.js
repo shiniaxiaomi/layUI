@@ -33,8 +33,8 @@ layui.define(['element',"fsConfig","fsCommon"], function(exports){
 
 	FsMenu.prototype.render = function(data){
 
-        menuConfig.data=data;
-		// this.loadData(data);
+        //menuConfig.data=data;
+		 this.loadData(data);
 
 		this.showMenu();
 	};
@@ -46,20 +46,21 @@ layui.define(['element',"fsConfig","fsCommon"], function(exports){
 
 
 
-        // if(menuConfig.dataType == "server") {//服务端拉取数据
-        //
-        //     var url = menuConfig.loadUrl;
-        //     if ($.isEmpty(url)) {
-        //         fsCommon.errorMsg("未配置请求地址！");
-        //         return;
-        //     }
-        //
-        //     var data=$.ajax({url:"/json/menu.json?v=1.01",async:false});
-        //     if(data!=undefined){
-        //         menuConfig.data=data.responseJSON;
-			// }
-        //
-        // }
+         if(menuConfig.dataType == "server") {//服务端拉取数据
+
+             var url = menuConfig.loadUrl;
+             if ($.isEmpty(url)) {
+                 fsCommon.errorMsg("未配置请求地址！");
+                 return;
+             }
+
+             console.dir(1111111)
+             var data=$.ajax({url:"/json/menu.json?v=1.01",async:false});
+             if(data!=undefined){
+                 menuConfig.data=data.responseJSON;
+			 }
+
+         }
 
 		// 	fsCommon.invoke(url,{},function(data){
   		// 	if(data[statusName] == successNo)

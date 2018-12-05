@@ -24,22 +24,30 @@ layui.define(['element'], function(exports){
     });
 	};
 
+	FsTab.prototype.uuid = function () {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+    }
+
 	/**
 	 * 新增tab
 	 */
 	FsTab.prototype.add = function(elem) {
 		var thisTab = this;
 		var layId = $(elem).attr("lay-id");
-  	if($.isEmpty(layId)){
-  		layId = $.uuid();
-  	}
+
+		if(layId==undefined){
+            layId = this.uuid();
+		}
   	//判断导航栏是否存在
   	if($('#fsTabMenu>li[lay-id="'+layId+'"]').length==0){
   		$(elem).attr("lay-id",layId);
   		var dom =$(elem).find("a");
   		var title = $(elem).find("a").html();
   		var dataUrl = dom.attr("dataUrl");
-  		if(!$.isEmpty(dataUrl)){
+  		if(dataUrl!=undefined){
   			element.tabAdd(thisTab.config.tabFilter, {
   			  title: title
   			  ,content: '<iframe src="'+dom.attr("dataUrl")+'"></iframe>' //支持传入html
@@ -92,7 +100,7 @@ layui.define(['element'], function(exports){
 	 * 菜单选中样式
 	 */
 	FsTab.prototype.menuSelectCss = function(layId){
-		if(!$.isEmpty(layId)){
+		if(layId!=undefined){
 			$('#fsLeftMenu .layui-this').removeClass("layui-this");//清除样式
 
 			var dom =$('#fsLeftMenu .layui-nav-child>dd[lay-id="'+ layId +'"],#fsLeftMenu>li[lay-id="'+ layId +'"]');
@@ -107,7 +115,7 @@ layui.define(['element'], function(exports){
 				}else if(tagName == "DD"){
 					dataPid = dom.parentsUntil('li').parent().attr("dataPid");
 				}
-				if(!$.isEmpty(dataPid)){
+				if(dataPid!=undefined){
 					$('#fsTopMenu li[dataPid="'+ dataPid +'"]').click();
 				}
 			}
@@ -115,9 +123,10 @@ layui.define(['element'], function(exports){
 	}
 
 
-
 	var fsTab = new FsTab();
 
+    //渲染tab
+    fsTab.render();
 
   //绑定按钮
 	exports("fsTab",fsTab);
