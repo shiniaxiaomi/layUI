@@ -11,13 +11,14 @@
 
     <!-- 右边主体的css -->
     <link rel="stylesheet" type="text/css" href="/css/fs.css?v=1.8.4" media="all"/>
+    <!--<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.8.4" media="all"/>-->
 
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
+    <!-- 顶部菜单栏 -->
     <div class="layui-header">
         <div class="layui-logo"><a  href="javascript:;" style="color: #F0F0F0;font-size: 20px">72cun 网址收藏</a></div>
-
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">控制台</a></li>
@@ -44,15 +45,16 @@
         </ul>
     </div>
 
+    <!-- 侧边栏 -->
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree fsLeftMenu"  lay-filter="fsLeftMenu" id="fsLeftMenu">
                 <li class="layui-nav-item layui-nav-itemed"  style="display: block;">
-                    <a href="javascript:;"><i class="fa fa-table"></i> <cite>案例</cite><span class="layui-nav-more"></span></a>
+                    <a href="javascript:;"><i class="fa fa-table"></i> <cite>demo</cite><span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
-                        <dd class="layui-this" lay-id="首页"><a href="javascript:;" dataurl="views/home/index.html"><i class="layui-icon"></i> <cite>首页</cite></a></dd>
-                        <dd><a href="javascript:;" dataurl="views/datagrid/index.html"><i class="fa fa-list"></i> <cite>数据表格</cite></a></dd>
+                        <dd class="layui-this" lay-id="首页"><a href="javascript:;" dataurl="/demo/welcome.html"><i class="layui-icon"></i> <cite>首页</cite></a></dd>
+                        <dd><a href="javascript:;" dataurl="/demo/index.html"><i class="fa fa-list"></i> <cite>自动生成的html</cite></a></dd>
                         <dd><a href="javascript:;" dataurl="views/datagrid2/index.html"><i class="fa fa-list"></i> <cite>数据表格2</cite></a></dd>
                     </dl>
                 </li>
@@ -69,8 +71,7 @@
         </div>
     </div>
 
-
-    <!-- 右边内容区域 -->
+    <!-- 内容区域 -->
     <div class="layui-body layui-form">
         <div class="layui-tab layui-tab-card fsTab" lay-filter="fsTab" lay-allowClose="true">
 
@@ -82,15 +83,14 @@
             <!-- 主体 -->
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show" lay-id="1">
-                    <iframe src="/demo/main.html?v=1.7.1"></iframe>
+                    <iframe src="/demo/welcome.html?v=1.7.1"></iframe>
                 </div>
             </div>
         </div>
     </div>
 
-
+    <!-- 底部固定区域 -->
     <div class="layui-footer">
-        <!-- 底部固定区域 -->
         © layui.com - 底部固定区域
     </div>
 </div>

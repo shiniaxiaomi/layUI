@@ -63,7 +63,7 @@ fieldset { min-width: 100px; }
 	.site-mobile .site-mobile-shade { content: ''; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background-color: rgba(0,0,0,.8); z-index: 999;}
 	/*layui-body*/
 	.panel{ width:50%; }
-	.layui-body,.layui-layout-admin .layui-footer{ left:0; }
+	.layui-body,.layui-layout-admin .layui-footer{ left:0; padding: 10px}
 }
 
 .fsSwitchMenu{position:absolute;left:200px;width:20px;height:20px;margin:15px 15px 0 0;font-size:17px;text-align:center;padding:5px 5px;color:#fff;background-color:#009688;}
