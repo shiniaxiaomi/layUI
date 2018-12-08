@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>table模块快速使用</title>
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all">
+</head>
+<body>
+
+<table id="demo" lay-filter="test" ></table>
+
+<!-- 工具栏模板： -->
+<script type="text/html" id="toolbarDemo" lay-event="tool">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="edit">编辑</button>
+    </div>
+</script>
+
+
+<script type="text/html" id="add">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+    </div>
+</script>
+
+<script src="/layui/layui.js"></script>
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+
+        //首次渲染,拿到对象
+        var tableIns = table.render({
+            elem: '#demo'
+            ,toolbar: '#add'    //绑定添加按钮事件
+            ,height: 312
+            ,url: '/data/table.json' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+
+                {checkbox: true,fixed: 'left'}
+                ,{field: 'id', title: 'ID', width:80, sort: true,}
+                ,{field: 'username', title: '用户名', width:80}
+                ,{field: 'sex', title: '性别', width:80, sort: true}
+                ,{field: 'city', title: '城市', width:80}
+                ,{field: 'sign', title: '签名', width: 177}
+                ,{field: 'experience', title: '积分', width: 80, sort: true}
+                ,{field: 'score', title: '评分', width: 80, sort: true}
+                ,{field: 'classify', title: '职业', width: 80}
+                ,{field: 'wealth', title: '财富', width: 135, sort: true}
+                ,{fixed: 'right', width:150, align:'center', toolbar: '#toolbarDemo'} //这里的toolbar值是模板元素的选择器
+            ]],
+            done: function(res, curr, count){
+                //如果是异步请求数据方式，res即为你接口返回的信息。
+                //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+                console.log(res);
+
+                //得到当前页码
+                console.log(curr);
+
+                //得到数据总量
+                console.log(count);
+            }
+        });
+
+
+        //这里以搜索为例,在url请求不变的情况下
+        function search(keyword) {
+            tableIns.reload({
+                where: { //设定异步数据接口的额外参数，任意设
+                    keyword: keyword,
+                }
+                ,page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+            });
+        }
+
+
+        //监听行内工具条
+        table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+            if(layEvent === 'delete'){ //删除
+                layer.confirm('真的删除行么', function(index){
+                    obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                    layer.close(index);
+                    //向服务端发送删除指令
+                });
+            } else if(layEvent === 'edit'){ //编辑
+                //do something
+
+                //同步更新缓存对应的值
+                obj.update({
+                    username: '123'
+                    ,title: 'xxx'
+                });
+            }
+        });
+
+        //监听添加事件
+        table.on('toolbar(test)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            if(obj.event==='add'){
+                layer.msg('添加');
+            }
+        });
+
+
+        //监听行单击事件
+        table.on('row(test)', function(obj){
+//            layer.msg(obj.data.id);
+//            console.log(obj.tr) //得到当前行元素对象
+            console.log(obj.data) //得到当前行数据
+//            obj.del(); //删除当前行
+            //obj.update(fields) //修改当前行数据
+        });
+
+        //监听行双击事件
+        table.on('rowDouble(test)', function(obj){
+            //obj 同上
+            layer.msg('我被双击了');
+        });
+
+
+
+
+
+
+    });
+</script>
+</body>
+</html>

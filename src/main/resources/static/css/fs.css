@@ -70,3 +70,55 @@ fieldset { min-width: 100px; }
 
 .showMenu.layui-layout-admin .layui-side{ left:-200px; }
 .showMenu .layui-body,.showMenu .layui-footer{ left:0; }
+
+/*最外层的div隐藏掉滚动条*/
+.fsTab .layui-tab-item {
+	-webkit-overflow-scrolling: touch;
+	overflow: hidden;
+}
+
+/*tab滑过的背景色*/
+/*.tabHover{*/
+	/*!*background-color: #01AAED;*!*/
+	/*!*font-size: 50px;*!*/
+/*}*/
+
+/*侧边栏选中的背景色*/
+.layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this>a, .layui-nav-tree .layui-this>a:hover {
+	background-color: #282B33;
+	color: #FFD04B;
+}
+
+/*tab的原始字体大小*/
+.layui-tab-title li {
+	font-size: 17px;
+}
+
+/*菜单栏中的字体大小*/
+.layui-nav * {
+	font-size: 17px;
+}
+
+/*tab的选中后的颜色*/
+.layui-tab-card>.layui-tab-title .layui-this {
+	background-color: #fff;
+	color: #FF5722;
+}
+
+/*侧边栏距离顶层的距离*/
+.layui-layout-admin .layui-side {
+	top: 66px;
+	width: 200px;
+	overflow-x: hidden;/*隐藏滚动条*/
+}
+
+/*右边的内容主体距离顶层的距离*/
+.layui-layout-admin .layui-body {
+	top: 66px;
+	bottom: 44px;
+}
+
+/*去除掉自带的移动bar*/
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+	height: 0px;
+}

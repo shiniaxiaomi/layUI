@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+
+</head>
+<body>
+
+
+    <div class="layui-btn-container">
+        <button class="layui-btn" id="id1">弹出提示消息</button>
+        <button class="layui-btn" id="id2">将页面中的dom元素拿到弹出层中</button>
+        <button class="layui-btn" id="id3">iframe弹窗</button>
+        <button class="layui-btn" id="id4">询问框</button>
+    </div>
+
+</body>
+</html>
+
+<script src="/layui/layui.js"></script><!-- 需要首先加载 -->
+<script type="text/javascript" src="/myjs/app.js?v=1.8.4"></script>
+
+<script>
+
+    layui.use(['layer','jquery'], function(){
+        var layer = layui.layer
+            ,$=layui.$;
+
+
+        $("#id1").on('click',function () {
+            layer.msg('hello');
+        })
+
+        $("#id2").on('click',function () {
+            layer.open({
+                type: 1,
+                content: $('#id1') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+            });
+        })
+
+        $("#id3").on('click',function () {
+            layer.open({
+                area: ['500px', '300px'],//定义大小
+                type: 2,
+                content: '/demo/button.html' //这里content是一个URL，如果你不想让iframe出现滚动条，你还可以content: ['http://sentsin.com', 'no']
+            });
+        })
+
+        $("#id4").on('click',function () {
+            layer.open({
+                content: '我是内容'
+                ,btn: ['是', '否',]
+                ,yes: function(index, layero){
+                    layer.msg('按钮一被点击了');
+                }
+                ,no: function(index, layero){
+                    console.dir(11111111)
+                    return false //开启该代码可禁止点击该按钮关闭
+                }
+                ,cancel: function(){
+                }
+            });
+        })
+
+    });
+
+</script>

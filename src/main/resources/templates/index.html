@@ -11,59 +11,74 @@
 
     <!-- 右边主体的css -->
     <link rel="stylesheet" type="text/css" href="/css/fs.css?v=1.8.4" media="all"/>
-    <!--<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.8.4" media="all"/>-->
 
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <!-- 顶部菜单栏 -->
     <div class="layui-header">
-        <div class="layui-logo"><a  href="javascript:;" style="color: #F0F0F0;font-size: 20px">72cun 网址收藏</a></div>
+        <div class="layui-logo"><a  href="javascript:;" style="color: #F0F0F0;font-size: 24px">72cun 网址收藏</a></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
+        <ul class="layui-nav layui-layout-left" lay-filter="fsTopLeftMenu" id="fsTopLeftMenu">
+            <li class="layui-nav-item"><a href="javascript:;" url="/demo/helloWorld.html"> <cite>helloWorld</cite></a></li>
+            <li class="layui-nav-item"><a href="javascript:;" url="/demo/helloWorld.html"> <cite>helloWorld2</cite></a></li>
             <li class="layui-nav-item"><a href="">控制台</a></li>
             <li class="layui-nav-item"><a href="">商品管理</a></li>
             <li class="layui-nav-item"><a href="">用户</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">其它系统</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="javascript:;" url="/demo/helloWorld.html"> <cite>helloWorld3</cite></a></dd>
                     <dd><a href="">消息管理</a></dd>
                     <dd><a href="">授权管理</a></dd>
                 </dl>
             </li>
         </ul>
-        <ul class="layui-nav layui-layout-right">
+        <ul class="layui-nav layui-layout-right" lay-filter="fsTopRightMenu" id="fsTopRightMenu">
             <li class="layui-nav-item">
                 <a href="javascript:;"><img src="/images/code.png" class="layui-nav-img">是你啊小米</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="javascript:;" url="/demo/helloWorld.html"> <cite>基本信息</cite></a></dd>
                     <dd><a href="">安全设置</a></dd>
                     <dd><a href="">退出</a></dd>
                 </dl>
             </li>
         </ul>
     </div>
+    <div style="background-color: #5FB878;height: 6px"></div>
 
     <!-- 侧边栏 -->
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree fsLeftMenu"  lay-filter="fsLeftMenu" id="fsLeftMenu">
-                <li class="layui-nav-item layui-nav-itemed"  style="display: block;">
-                    <a href="javascript:;"><i class="fa fa-table"></i> <cite>demo</cite><span class="layui-nav-more"></span></a>
+            <ul class="layui-nav layui-nav-tree"  lay-filter="fsSideBarMenu" id="fsSideBarMenu">
+
+                <li class="layui-nav-item "  style="display: block;"><!-- layui-nav-itemed 默认打开 -->
+                    <a href="javascript:;"><i class="fa fa-table"></i> <cite>学习</cite><span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
-                        <dd class="layui-this" lay-id="首页"><a href="javascript:;" dataurl="/demo/welcome.html"><i class="layui-icon"></i> <cite>首页</cite></a></dd>
-                        <dd><a href="javascript:;" dataurl="/demo/index.html"><i class="fa fa-list"></i> <cite>自动生成的html</cite></a></dd>
-                        <dd><a href="javascript:;" dataurl="views/datagrid2/index.html"><i class="fa fa-list"></i> <cite>数据表格2</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/helloWorld.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>helloWorld</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/extendsModule.html"><cite><i class="layui-icon layui-icon-triangle-r"></i>拓展模块</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/importJquery.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>导入jquery</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/localStorage.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>使用localStorage</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/layout.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>布局</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/iconAndAnimate.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>图标和动画</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/button.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>按钮</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/form.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>表单</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/progressBar.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>进度条</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/tab.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>选项卡</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/panel.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>卡片面板</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/table.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>表格</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/timeLine.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>时间线</cite></a></dd>
                     </dl>
                 </li>
-
                 <li class="layui-nav-item layui-nav-itemed"  style="display: block;">
-                    <a href="javascript:;" ><i class="fa fa-table"></i> <cite>案例</cite><span class="layui-nav-more"></span></a>
+                    <a href="javascript:;"><i class="fa fa-table"></i> <cite>layui内置模块</cite><span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" dataurl="views/datagrid/index.html"><i class="fa fa-list"></i> <cite>数据表格</cite></a></dd>
-                        <dd><a href="javascript:;" dataurl="views/datagrid2/index.html"><i class="fa fa-list"></i> <cite>数据表格2</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/layer.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>弹出层</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/laydate.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>日期组件</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/laypage.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>分页</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/dynamicTable.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>动态表格</cite></a></dd>
+                        <dd><a href="javascript:;" url="/demo/tree.html"> <cite><i class="layui-icon layui-icon-triangle-r"></i>树</cite></a></dd>
                     </dl>
                 </li>
 
@@ -77,13 +92,13 @@
 
             <!-- 菜单导航 -->
             <ul class="layui-tab-title" id="fsTabMenu">
-                <li class="layui-this" lay-id="首页"><i class="layui-icon">&#xe68e;</i><cite>首页</cite><p class="layui-tab-close" style="display: none;"></p></li>
+                <li class="layui-this" lay-id="首页"><cite><i class="layui-icon layui-icon-home"></i>首页</cite><p class="layui-tab-close" style="display: none;"></p></li>
             </ul>
 
             <!-- 主体 -->
             <div class="layui-tab-content">
-                <div class="layui-tab-item layui-show" lay-id="1">
-                    <iframe src="/demo/welcome.html?v=1.7.1"></iframe>
+                <div class="layui-tab-item layui-show" lay-id="首页">
+                    <iframe src="/demo/home.html"></iframe>
                 </div>
             </div>
         </div>
@@ -91,18 +106,18 @@
 
     <!-- 底部固定区域 -->
     <div class="layui-footer">
-        © layui.com - 底部固定区域
+        <div style="width:300px;margin:0 auto; padding:20px 0;">
+            <a href="javascript:;" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010802009151号</p></a>
+        </div>
     </div>
+
 </div>
-<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 <script src="/layui/layui.js"></script><!-- 需要首先加载 -->
 <script src="/js/jquery.contextMenu.min.js"></script>
-<script type="text/javascript" src="/modules/fs.js?v=1.8.4"></script>
+<script src="/myjs/app.js?v=1.0.0"></script>
 <script>
     layui.use(['layer','fsTab','fsContextMenu','leftSide'], function(){
-
-
-
 
 
     });

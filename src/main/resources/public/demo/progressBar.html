@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+</head>
+<body>
+
+<h1>通过lay-filter来标记dom节点,可以当id选择器来使用</h1>
+<div class="layui-progress" lay-filter="a">
+    <div class="layui-progress-bar" lay-percent="10%"></div>
+</div>
+
+</body>
+</html>
+
+<script src="/layui/layui.js"></script><!-- 需要首先加载 -->
+<script>
+    //注意进度条依赖 element 模块，否则无法进行正常渲染和功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+
+        element.progress('a', '80%');
+    });
+</script>
